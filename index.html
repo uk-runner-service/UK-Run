@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UK 使命必达先生</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6fb;
+}
+header {
+    background: #1e3a8a;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+header p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+button {
+    margin-top: 20px;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #25D366;
+    color: white;
+}
+.rules {
+    background: #f0f4ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 25px;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #666;
+}
+.top-link {
+    text-align: right;
+    margin-bottom: 10px;
+}
+.top-link a {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>UK 使命必达先生</h1>
+    <p>实名接单 · 留学生专属跑腿平台</p>
+</header>
+
+<div class="container">
+
+    <div class="top-link">
+        <a href="join.html">加入我们！成为接单人</a>
+    </div>
+
+    <h2>提交订单</h2>
+
+    <form id="orderForm">
+
+        <label>所在城市</label>
+        <select id="city" required>
+            <option value="">请选择</option>
+            <option>London</option>
+            <option>Manchester</option>
+            <option>Leeds</option>
+            <option>Sheffield</option>
+            <option>Nottingham</option>
+            <option>Birmingham</option>
+            <option>York</option>
+            <option>Newcastle</option>
+            <option>Glasgow</option>
+            <option>Edinburgh</option>
+        </select>
+
+        <label>服务类型</label>
+        <select id="serviceType" required>
+            <option value="">请选择</option>
+            <option>普通跑腿（160 RMB/h）取件/送件/代寄快递等（小件）</option>
+            <option>复杂跑腿（200 RMB/h）办事/验货/代买/代排队/小鬼代买等</option>
+            <option>定制任务（联系客服报价）</option>
+        </select>
+
+        <label>任务地点</label>
+        <input type="text" id="location" required>
+
+        <label>Post Code</label>
+        <input type="text" id="postcode" required>
+
+        <label>预约日期</label>
+        <input type="date" id="date" required>
+
+        <label>预约时间段</label>
+        <select id="timeSlot" required>
+            <option value="">请选择时间段</option>
+            <option>09:00 - 12:00</option>
+            <option>12:00 - 15:00</option>
+            <option>15:00 - 18:00</option>
+            <option>18:00 - 21:00</option>
+            <option>21:00 - 23:00（夜间）</option>
+        </select>
+
+        <label>是否加急</label>
+        <select id="urgent">
+            <option value="否">否</option>
+            <option value="是（需额外加急费用）">是</option>
+        </select>
+
+        <label>具体内容</label>
+        <textarea id="details" rows="4" required></textarea>
+
+        <label>上传图片（可选）</label>
+        <input type="file" accept="image/*" multiple>
+
+        <label>姓名</label>
+        <input type="text" id="name" required>
+
+        <label>联系方式（WhatsApp / WeChat / Email）</label>
+<input type="text" id="contact" placeholder="请填写你的联系方式" required>
+
+        <button type="submit">提交订单</button>
+    </form>
+
+    <div class="rules">
+        <strong>平台规则：</strong><br><br>
+        ✔ 下单需支付 50% 定金，加急费用请咨询客服<br>
+        ✔ 普通跑腿超时 70 RMB / 30min<br>
+        ✔ 复杂跑腿超时 90 RMB / 30min<br>
+        ✔ 定制任务费用根据实际情况报价
+        
+      
+        
+    </div>
+
+</div>
+
+<footer>
+© 2026 UK 使命必达先生
+</footer>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    var city = document.getElementById("city").value;
+    var serviceType = document.getElementById("serviceType").value;
+    var location = document.getElementById("location").value;
+    var postcode = document.getElementById("postcode").value;
+    var date = document.getElementById("date").value;
+    var timeSlot = document.getElementById("timeSlot").value;
+    var urgent = document.getElementById("urgent").value;
+    var details = document.getElementById("details").value;
+    var name = document.getElementById("name").value;
+    var contact = document.getElementById("contact").value;
+
+    var message =
+        "【新订单】\n" +
+        "城市: " + city + "\n" +
+        "类型: " + serviceType + "\n" +
+        "任务地点: " + location + "\n" +
+        "PostCode: " + postcode + "\n" +
+        "预约日期: " + date + "\n" +
+        "时间段: " + timeSlot + "\n" +
+        "是否加急: " + urgent + "\n" +
+        "任务内容: " + details + "\n" +
+        "客户姓名: " + name + "\n" +
+        "联系方式: " + contact;
+
+    var whatsappURL = "https://wa.me/447776720924?text=" + encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+});
+</script>
+
+</body>
+</html>
