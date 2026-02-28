@@ -95,10 +95,10 @@ footer {
 
     <h2>提交订单</h2>
 
-    <form id="orderForm">
+   <form id="orderForm" action="https://formspree.io/f/mnjbrrpd" method="POST">
 
         <label>所在城市</label>
-        <select id="city" required>
+        <select id="city" name="城市" required>
             <option value="">请选择</option>
             <option>London</option>
             <option>Manchester</option>
@@ -113,7 +113,7 @@ footer {
         </select>
 
         <label>服务类型</label>
-        <select id="serviceType" required>
+        <select id="serviceType" name="服务类型" required>
             <option value="">请选择</option>
             <option>普通跑腿（160 RMB/h）取件/送件/代寄快递等（小件）</option>
             <option>复杂跑腿（200 RMB/h）办事/验货/代买/代排队/小鬼代买等</option>
@@ -121,16 +121,16 @@ footer {
         </select>
 
         <label>任务地点</label>
-        <input type="text" id="location" required>
+        <input type="text" id="location" name="任务地点" required>
 
         <label>Post Code</label>
-        <input type="text" id="postcode" required>
+        <input type="text" id="postcode" name="Postcode" required>
 
         <label>预约日期</label>
-        <input type="date" id="date" required>
+        <input type="date" id="date" name="预约日期" required>
 
         <label>预约时间段</label>
-        <select id="timeSlot" required>
+        <select id="timeSlot" name="预约时间段" required>
             <option value="">请选择时间段</option>
             <option>09:00 - 12:00</option>
             <option>12:00 - 15:00</option>
@@ -140,7 +140,7 @@ footer {
         </select>
 
         <label>是否加急</label>
-        <select id="urgent">
+        <select id="urgent" name="是否加急">
             <option value="否">否</option>
             <option value="是（需额外加急费用）">是</option>
         </select>
@@ -212,4 +212,5 @@ document.getElementById("orderForm").addEventListener("submit", function(e) {
 </script>
 
 </body>
+
 </html>
