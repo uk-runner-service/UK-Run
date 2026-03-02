@@ -146,16 +146,16 @@ footer {
         </select>
 
         <label>具体内容</label>
-        <textarea id="details" rows="4" required></textarea>
+        <textarea id="details" name="具体内容" rows="4" required></textarea>
 
         <label>上传图片（可选）</label>
-        <input type="file" accept="image/*" multiple>
+        <input type="file" name="图片" accept="image/*" multiple>
 
         <label>姓名</label>
-        <input type="text" id="name" required>
+        <input type="text" id="name" name="姓名" required>
 
         <label>联系方式（WhatsApp / WeChat / Email）</label>
-<input type="text" id="contact" placeholder="请填写你的联系方式" required>
+<input type="text" id="contact" name="联系方式" placeholder="请填写你的联系方式" required>
 
         <button type="submit">提交订单</button>
     </form>
@@ -177,32 +177,9 @@ footer {
 © 2026 UK 使命必达先生
 </footer>
 
-<script>
 
-    var city = document.getElementById("city").value;
-    var serviceType = document.getElementById("serviceType").value;
-    var location = document.getElementById("location").value;
-    var postcode = document.getElementById("postcode").value;
-    var date = document.getElementById("date").value;
-    var timeSlot = document.getElementById("timeSlot").value;
-    var urgent = document.getElementById("urgent").value;
-    var details = document.getElementById("details").value;
-    var name = document.getElementById("name").value;
-    var contact = document.getElementById("contact").value;
-
-    var message =
-        "【新订单】\n" +
-        "城市: " + city + "\n" +
-        "类型: " + serviceType + "\n" +
-        "任务地点: " + location + "\n" +
-        "PostCode: " + postcode + "\n" +
-        "预约日期: " + date + "\n" +
-        "时间段: " + timeSlot + "\n" +
-        "是否加急: " + urgent + "\n" +
-        "任务内容: " + details + "\n" +
-        "客户姓名: " + name + "\n" +
-        "联系方式: " + contact;
 
    
+
 
 
