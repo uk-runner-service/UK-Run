@@ -148,8 +148,6 @@ footer {
         <label>具体内容</label>
         <textarea id="details" name="具体内容" rows="4" required></textarea>
 
-        <label>上传图片（可选）</label>
-        <input type="file" name="图片" accept="image/*" multiple>
 
         <label>姓名</label>
         <input type="text" id="name" name="姓名" required>
@@ -180,6 +178,7 @@ footer {
 
 
    
+
 
 
 
