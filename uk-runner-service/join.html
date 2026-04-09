@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加入我们｜UK 使命必达先生</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f6fb;
+}
+header {
+    background: #1e3a8a;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+header p {
+    margin-top: 10px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+button {
+    margin-top: 25px;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    background: #2563eb;
+    color: white;
+    font-weight: bold;
+}
+button:hover {
+    opacity: 0.9;
+}
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.back-link {
+    margin-bottom: 20px;
+}
+.back-link a {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: bold;
+}
+.info-box {
+    background: #f0f4ff;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    color: #1e3a8a;
+}
+.message {
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 8px;
+    display: none;
+}
+.message.success {
+    background: #eafaf1;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+.message.error {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>加入我们｜成为城市接单人</h1>
+    <p>欢迎英国本地留学生加入跑腿团队</p>
+</header>
+
+<div class="container">
+    <div class="back-link">
+        <a href="index.html">← 返回首页</a>
+    </div>
+
+    <div class="info-box">
+        我们优先招募 London / York / Leeds 城市的本地留学生。  
+        前期以代取快递、代买日用品、送件等轻任务为主。
+    </div>
+
+    <h2>报名表</h2>
+
+    <form id="runnerForm">
+        <label for="name">姓名</label>
+        <input type="text" id="name" required>
+
+        <label for="school">学校</label>
+        <input type="text" id="school" required>
+
+        <label for="city">所在城市</label>
+        <select id="city" required>
+            <option value="">请选择</option>
+            <option value="London">London</option>
+            <option value="York">York</option>
+            <option value="Leeds">Leeds</option>
+            <option value="Manchester">Manchester</option>
+            <option value="Sheffield">Sheffield</option>
+            <option value="Nottingham">Nottingham</option>
+            <option value="Birmingham">Birmingham</option>
+            <option value="Newcastle">Newcastle</option>
+            <option value="Glasgow">Glasgow</option>
+            <option value="Edinburgh">Edinburgh</option>
+        </select>
+
+        <label for="whatsapp">WhatsApp / 电话</label>
+        <input type="text" id="whatsapp" required>
+
+        <label for="email">常用 Email</label>
+        <input type="email" id="email">
+
+        <label for="student_email">学校邮箱</label>
+        <input type="email" id="student_email">
+
+        <label for="has_car">是否有车</label>
+        <select id="has_car">
+            <option value="false">没有</option>
+            <option value="true">有</option>
+        </select>
+
+        <label for="vehicle_type">交通方式</label>
+        <select id="vehicle_type">
+            <option value="">请选择</option>
+            <option value="walk">步行</option>
+            <option value="bike">自行车</option>
+            <option value="ebike">电动车</option>
+            <option value="car">汽车</option>
+            <option value="public_transport">公共交通</option>
+        </select>
+
+        <label for="available_time">可接单时间</label>
+        <input type="text" id="available_time" placeholder="例如：weekday evenings / weekends">
+
+        <label for="intro">简单介绍一下自己</label>
+        <textarea id="intro" rows="5" placeholder="例如：我在 York 读书，平时晚上和周末有空，可以接取件和代买类订单。"></textarea>
+
+        <button type="submit" id="submitBtn">提交报名</button>
+    </form>
+
+    <div id="formMessage" class="message"></div>
+</div>
+
+<footer>
+© 2026 UK 使命必达先生
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL = 'https://jbmhsvnttwgtdsfmuspc.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_HLDWgq17-PejWydXrLkr2A_F0a_3dpw';
+
+  const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const form = document.getElementById('runnerForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formMessage = document.getElementById('formMessage');
+
+  function showMessage(type, text) {
+    formMessage.className = 'message ' + type;
+    formMessage.textContent = text;
+    formMessage.style.display = 'block';
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '提交中...';
+    formMessage.style.display = 'none';
+
+    const payload = {
+      name: document.getElementById('name').value,
+      school: document.getElementById('school').value,
+      city: document.getElementById('city').value,
+      whatsapp: document.getElementById('whatsapp').value,
+      email: document.getElementById('email').value || null,
+      student_email: document.getElementById('student_email').value || null,
+      has_car: document.getElementById('has_car').value === 'true',
+      vehicle_type: document.getElementById('vehicle_type').value || null,
+      available_time: document.getElementById('available_time').value || null,
+      intro: document.getElementById('intro').value || null,
+      verify_status: 'pending'
+    };
+
+    const { error } = await supabaseClient
+      .from('runners')
+      .insert([payload]);
+
+    if (error) {
+      console.error(error);
+      showMessage('error', '提交失败：' + error.message);
+      submitBtn.disabled = false;
+      submitBtn.textContent = '提交报名';
+      return;
+    }
+
+    showMessage('success', '报名提交成功，我们会尽快联系你。');
+    form.reset();
+    submitBtn.disabled = false;
+    submitBtn.textContent = '提交报名';
+  });
+</script>
+
+</body>
+</html>
