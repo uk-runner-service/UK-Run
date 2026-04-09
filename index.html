@@ -52,6 +52,7 @@ input, select, textarea {
     margin-top: 5px;
     border-radius: 6px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 button {
     margin-top: 25px;
@@ -67,6 +68,10 @@ button {
 }
 button:hover {
     opacity: 0.9;
+}
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 .rules {
     background: #f0f4ff;
@@ -89,6 +94,27 @@ footer {
     color: #2563eb;
     font-weight: bold;
 }
+.message {
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 8px;
+    display: none;
+}
+.message.success {
+    background: #eafaf1;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+.message.error {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+.small-note {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #666;
+}
 </style>
 </head>
 
@@ -105,7 +131,6 @@ footer {
         <a href="join.html">加入我们｜成为城市接单人</a>
     </div>
 
-    <!-- 为什么选择我们 -->
     <div class="section">
         <h3>为什么选择我们？</h3>
         ✔ 英国本地留学生团队<br>
@@ -114,7 +139,6 @@ footer {
         ✔ 支持 WhatsApp / 微信 / Email 联系<br>
     </div>
 
-    <!-- 服务流程 -->
     <div class="section">
         <h3>服务流程</h3>
         1️⃣ 提交订单需求<br>
@@ -125,67 +149,69 @@ footer {
 
     <h2>提交订单</h2>
 
-   <form action="https://formspree.io/f/mnjbrrpd" method="POST">
-
-        <label>所在城市</label>
-        <select name="城市" required>
+    <form id="orderForm">
+        <label for="city">所在城市</label>
+        <select id="city" required>
             <option value="">请选择</option>
-            <option>London（核心城市）</option>
-            <option>York（核心城市）</option>
-            <option>Leeds（核心城市）</option>
-            <option>Manchester</option>
-            <option>Sheffield</option>
-            <option>Nottingham</option>
-            <option>Birmingham</option>
-            <option>Newcastle</option>
-            <option>Glasgow</option>
-            <option>Edinburgh</option>
+            <option value="London">London（核心城市）</option>
+            <option value="York">York（核心城市）</option>
+            <option value="Leeds">Leeds（核心城市）</option>
+            <option value="Manchester">Manchester</option>
+            <option value="Sheffield">Sheffield</option>
+            <option value="Nottingham">Nottingham</option>
+            <option value="Birmingham">Birmingham</option>
+            <option value="Newcastle">Newcastle</option>
+            <option value="Glasgow">Glasgow</option>
+            <option value="Edinburgh">Edinburgh</option>
         </select>
 
-        <label>服务类型</label>
-        <select name="服务类型" required>
+        <label for="service_type">服务类型</label>
+        <select id="service_type" required>
             <option value="">请选择</option>
-            <option>普通跑腿（160 RMB/h）取件/送件/代寄快递等（小件）</option>
-            <option>复杂跑腿（200 RMB/h）办事/验货/代买/代排队等</option>
-            <option>定制任务（联系客服报价）</option>
+            <option value="parcel_pickup">普通跑腿（160 RMB/h）取件/送件/代寄快递等（小件）</option>
+            <option value="complex_errand">复杂跑腿（200 RMB/h）办事/验货/代买/代排队等</option>
+            <option value="custom_task">定制任务（联系客服报价）</option>
         </select>
 
-        <label>任务地点</label>
-        <input type="text" name="任务地点" required>
+        <label for="pickup_address">任务地点</label>
+        <input type="text" id="pickup_address" required>
 
-        <label>Post Code</label>
-        <input type="text" name="Postcode" required>
+        <label for="postcode">Post Code</label>
+        <input type="text" id="postcode" required>
 
-        <label>预约日期</label>
-        <input type="date" name="预约日期" required>
+        <label for="scheduled_date">预约日期</label>
+        <input type="date" id="scheduled_date" required>
 
-        <label>预约时间段</label>
-        <select name="预约时间段" required>
+        <label for="time_slot">预约时间段</label>
+        <select id="time_slot" required>
             <option value="">请选择时间段</option>
-            <option>09:00 - 12:00</option>
-            <option>12:00 - 15:00</option>
-            <option>15:00 - 18:00</option>
-            <option>18:00 - 21:00</option>
-            <option>21:00 - 23:00（夜间）</option>
+            <option value="09:00 - 12:00">09:00 - 12:00</option>
+            <option value="12:00 - 15:00">12:00 - 15:00</option>
+            <option value="15:00 - 18:00">15:00 - 18:00</option>
+            <option value="18:00 - 21:00">18:00 - 21:00</option>
+            <option value="21:00 - 23:00">21:00 - 23:00（夜间）</option>
         </select>
 
-        <label>是否加急</label>
-        <select name="是否加急">
-            <option value="否">否</option>
-            <option value="是（需额外加急费用）">是</option>
+        <label for="urgent">是否加急</label>
+        <select id="urgent">
+            <option value="false">否</option>
+            <option value="true">是（需额外加急费用）</option>
         </select>
 
-        <label>具体内容</label>
-        <textarea name="具体内容" rows="4" required></textarea>
+        <label for="description">具体内容</label>
+        <textarea id="description" rows="4" required></textarea>
 
-        <label>姓名</label>
-        <input type="text" name="姓名" required>
+        <label for="contact_name">姓名</label>
+        <input type="text" id="contact_name" required>
 
-        <label>联系方式（WhatsApp / WeChat / Email）</label>
-        <input type="text" name="联系方式" placeholder="请填写你的联系方式" required>
+        <label for="contact_method">联系方式（WhatsApp / WeChat / Email）</label>
+        <input type="text" id="contact_method" placeholder="请填写你的联系方式" required>
 
-        <button type="submit">立即提交需求</button>
+        <button type="submit" id="submitBtn">立即提交需求</button>
+        <div class="small-note">提交后，订单会直接进入后台数据库。</div>
     </form>
+
+    <div id="formMessage" class="message"></div>
 
     <div class="rules">
         <strong>平台规则：</strong><br><br>
@@ -201,6 +227,78 @@ footer {
 <footer>
 © 2026 UK 使命必达先生 · London / York / Leeds
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL = 'https://jbmhsvnttwgtdsfmuspc.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_HLDWgq17-PejWydXrLkr2A_F0a_3dpw';
+
+  const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const form = document.getElementById('orderForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formMessage = document.getElementById('formMessage');
+
+  function showMessage(type, text) {
+    formMessage.className = 'message ' + type;
+    formMessage.textContent = text;
+    formMessage.style.display = 'block';
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '提交中...';
+    formMessage.style.display = 'none';
+
+    const city = document.getElementById('city').value;
+    const serviceType = document.getElementById('service_type').value;
+    const pickupAddress = document.getElementById('pickup_address').value;
+    const postcode = document.getElementById('postcode').value;
+    const scheduledDate = document.getElementById('scheduled_date').value;
+    const timeSlot = document.getElementById('time_slot').value;
+    const urgent = document.getElementById('urgent').value === 'true';
+    const description = document.getElementById('description').value;
+    const contactName = document.getElementById('contact_name').value;
+    const contactMethod = document.getElementById('contact_method').value;
+
+    const { error } = await supabaseClient
+      .from('orders')
+      .insert([
+        {
+          city: city,
+          service_type: serviceType,
+          pickup_address: pickupAddress,
+          delivery_address: null,
+          postcode: postcode,
+          scheduled_date: scheduledDate,
+          time_slot: timeSlot,
+          latest_finish_time: null,
+          urgent: urgent,
+          advance_payment_needed: false,
+          advance_amount: 0,
+          description: description,
+          contact_name: contactName,
+          contact_method: contactMethod,
+          status: 'pending'
+        }
+      ]);
+
+    if (error) {
+      console.error('提交失败:', error);
+      showMessage('error', '提交失败：' + error.message);
+      submitBtn.disabled = false;
+      submitBtn.textContent = '立即提交需求';
+      return;
+    }
+
+    showMessage('success', '订单提交成功，我们会尽快联系你。');
+    form.reset();
+    submitBtn.disabled = false;
+    submitBtn.textContent = '立即提交需求';
+  });
+</script>
 
 </body>
 </html>
