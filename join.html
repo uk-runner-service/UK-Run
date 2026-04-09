@@ -6,102 +6,287 @@
 <title>加入我们｜UK 使命必达先生</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f4f6fb;
+* {
+    box-sizing: border-box;
 }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
 header {
-    background: #1e3a8a;
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
     color: white;
-    padding: 50px 20px;
+    padding: 60px 20px 50px;
     text-align: center;
 }
+
 header h1 {
     margin: 0;
-    font-size: 32px;
+    font-size: 36px;
+    line-height: 1.3;
 }
+
 header p {
-    margin-top: 10px;
-    font-size: 16px;
-    opacity: 0.9;
+    margin: 14px auto 0;
+    max-width: 760px;
+    font-size: 17px;
+    line-height: 1.7;
+    opacity: 0.95;
 }
+
+.hero-badges {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.hero-badges span {
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.22);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+}
+
 .container {
-    max-width: 900px;
-    margin: 30px auto;
-    background: white;
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 28px 20px 50px;
 }
+
+.back-link {
+    margin-bottom: 22px;
+}
+
+.back-link a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.section {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 22px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.section h2 {
+    margin: 0 0 16px;
+    color: #1e3a8a;
+    font-size: 24px;
+}
+
+.section p {
+    line-height: 1.8;
+    margin: 0;
+    color: #374151;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.card {
+    background: #f8fbff;
+    border: 1px solid #dbeafe;
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.card h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #1e3a8a;
+}
+
+.card p, .card li {
+    color: #4b5563;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+.step {
+    background: #f8fbff;
+    border: 1px solid #dbeafe;
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+}
+
+.step-number {
+    width: 34px;
+    height: 34px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.step h4 {
+    margin: 0 0 8px;
+    color: #1e3a8a;
+    font-size: 16px;
+}
+
+.step p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4b5563;
+}
+
+.highlight-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 14px;
+    padding: 18px;
+    color: #1e3a8a;
+    line-height: 1.8;
+}
+
+.form-wrap {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.form-wrap h2 {
+    margin: 0 0 10px;
+    color: #1e3a8a;
+}
+
+.form-wrap .form-desc {
+    color: #4b5563;
+    margin-bottom: 18px;
+    line-height: 1.7;
+}
+
 label {
     display: block;
     margin-top: 15px;
     font-weight: bold;
+    color: #111827;
 }
+
 input, select, textarea {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+    background: #fff;
 }
+
+textarea {
+    resize: vertical;
+}
+
 button {
-    margin-top: 25px;
-    padding: 15px;
+    margin-top: 24px;
     width: 100%;
+    padding: 15px;
     border: none;
-    border-radius: 8px;
-    font-size: 17px;
-    cursor: pointer;
+    border-radius: 10px;
     background: #2563eb;
     color: white;
+    font-size: 17px;
     font-weight: bold;
+    cursor: pointer;
 }
+
 button:hover {
-    opacity: 0.9;
+    opacity: 0.95;
 }
+
 button:disabled {
-    opacity: 0.6;
+    opacity: 0.65;
     cursor: not-allowed;
 }
-.back-link {
-    margin-bottom: 20px;
+
+.small-note {
+    margin-top: 10px;
+    color: #6b7280;
+    font-size: 13px;
 }
-.back-link a {
-    text-decoration: none;
-    color: #2563eb;
-    font-weight: bold;
-}
-.info-box {
-    background: #f0f4ff;
-    padding: 18px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    color: #1e3a8a;
-}
+
 .message {
     margin-top: 18px;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 12px 14px;
+    border-radius: 10px;
     display: none;
+    line-height: 1.6;
 }
+
 .message.success {
-    background: #eafaf1;
+    background: #ecfdf5;
     color: #166534;
     border: 1px solid #bbf7d0;
 }
+
 .message.error {
     background: #fef2f2;
     color: #991b1b;
     border: 1px solid #fecaca;
 }
+
 footer {
     text-align: center;
-    padding: 25px;
+    padding: 28px 20px 40px;
+    color: #6b7280;
     font-size: 14px;
-    color: #666;
+}
+
+@media (max-width: 960px) {
+    .grid-4,
+    .grid-2,
+    .steps {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    .grid-4,
+    .grid-2,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .section,
+    .form-wrap {
+        padding: 20px;
+    }
 }
 </style>
 </head>
@@ -109,8 +294,17 @@ footer {
 <body>
 
 <header>
-    <h1>加入我们｜成为城市接单人</h1>
-    <p>欢迎英国本地留学生加入跑腿团队</p>
+    <h1>加入 UK 使命必达先生<br>成为城市接单人</h1>
+    <p>
+        面向英国本地留学生的跑腿协助平台，优先招募 London / York / Leeds 等城市的同学。
+        前期以代取快递、代买日用品、送件、小型协助任务为主，适合课余时间灵活接单。
+    </p>
+    <div class="hero-badges">
+        <span>留学生团队</span>
+        <span>课余时间可接单</span>
+        <span>轻任务为主</span>
+        <span>审核后派单</span>
+    </div>
 </header>
 
 <div class="container">
@@ -118,80 +312,187 @@ footer {
         <a href="index.html">← 返回首页</a>
     </div>
 
-    <div class="info-box">
-        我们优先招募 London / York / Leeds 城市的本地留学生。  
-        前期以代取快递、代买日用品、送件等轻任务为主。
+    <div class="section">
+        <h2>为什么加入我们</h2>
+        <div class="grid-4">
+            <div class="card">
+                <h3>灵活接单</h3>
+                <p>适合上课之外的空闲时间接单，前期以轻量任务为主，不需要全职投入。</p>
+            </div>
+            <div class="card">
+                <h3>任务相对简单</h3>
+                <p>主要是代取快递、代买、送件、站点接送协助等，不是高强度搬运型工作。</p>
+            </div>
+            <div class="card">
+                <h3>同城优先分配</h3>
+                <p>平台会优先根据城市、时间和任务类型进行人工匹配，减少无效沟通。</p>
+            </div>
+            <div class="card">
+                <h3>前期平台协调</h3>
+                <p>前期由平台先统一接单和沟通，跑腿员通过审核后进入可接单名单。</p>
+            </div>
+        </div>
     </div>
 
-    <h2>报名表</h2>
+    <div class="section">
+        <h2>常见任务类型</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>轻任务为主</h3>
+                <ul>
+                    <li>代取快递</li>
+                    <li>代买日用品 / 超市采购</li>
+                    <li>文件 / 小件送达</li>
+                    <li>简单验货 / 到场协助</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>收益说明</h3>
+                <p>
+                    每单根据距离、时间、任务复杂度和是否加急综合结算。
+                    夜间单、急单、远距离单通常会有额外加价，具体以平台通知为准。
+                </p>
+            </div>
+        </div>
+    </div>
 
-    <form id="runnerForm">
-        <label for="name">姓名</label>
-        <input type="text" id="name" required>
+    <div class="section">
+        <h2>加入流程</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>提交申请</h4>
+                <p>填写基本信息、所在城市和可接单时间。</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>平台审核</h4>
+                <p>核对基础信息，必要时补充学校或身份说明。</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>加入名单</h4>
+                <p>审核通过后进入可接单跑腿员名单。</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>人工派单</h4>
+                <p>前期按城市、时间和任务类型手动安排订单。</p>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <h4>完成结算</h4>
+                <p>任务完成后按实际情况记录并安排结算。</p>
+            </div>
+        </div>
+    </div>
 
-        <label for="school">学校</label>
-        <input type="text" id="school" required>
+    <div class="section">
+        <h2>招募要求</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3>基础要求</h3>
+                <ul>
+                    <li>目前在英国本地生活或留学</li>
+                    <li>能稳定使用 WhatsApp 或 Email</li>
+                    <li>回复及时，做事认真</li>
+                    <li>能按约定时间完成任务</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>优先条件</h3>
+                <ul>
+                    <li>位于 London / York / Leeds</li>
+                    <li>熟悉本地交通和学校周边</li>
+                    <li>有车或有稳定出行方式</li>
+                    <li>周末或晚间有空档</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-        <label for="city">所在城市</label>
-        <select id="city" required>
-            <option value="">请选择</option>
-            <option value="London">London</option>
-            <option value="York">York</option>
-            <option value="Leeds">Leeds</option>
-            <option value="Manchester">Manchester</option>
-            <option value="Sheffield">Sheffield</option>
-            <option value="Nottingham">Nottingham</option>
-            <option value="Birmingham">Birmingham</option>
-            <option value="Newcastle">Newcastle</option>
-            <option value="Glasgow">Glasgow</option>
-            <option value="Edinburgh">Edinburgh</option>
-        </select>
+    <div class="section">
+        <div class="highlight-box">
+            所有申请均需经过平台审核。通过后才会进入可接单名单。  
+            你提交后，我们会优先通过 WhatsApp 或 Email 联系你，请确保联系方式可用。
+        </div>
+    </div>
 
-        <label for="whatsapp">WhatsApp / 电话</label>
-        <input type="text" id="whatsapp" required>
+    <div class="form-wrap">
+        <h2>填写报名信息</h2>
+        <div class="form-desc">
+            请尽量填写完整，便于平台后续审核和联系。前期通过审核的同学，会优先进入可接单名单。
+        </div>
 
-        <label for="email">常用 Email</label>
-        <input type="email" id="email">
+        <form id="runnerForm">
+            <label for="name">姓名</label>
+            <input type="text" id="name" required>
 
-        <label for="student_email">学校邮箱</label>
-        <input type="email" id="student_email">
+            <label for="school">学校</label>
+            <input type="text" id="school" required>
 
-        <label for="has_car">是否有车</label>
-        <select id="has_car">
-            <option value="false">没有</option>
-            <option value="true">有</option>
-        </select>
+            <label for="city">所在城市</label>
+            <select id="city" required>
+                <option value="">请选择</option>
+                <option value="London">London</option>
+                <option value="York">York</option>
+                <option value="Leeds">Leeds</option>
+                <option value="Manchester">Manchester</option>
+                <option value="Sheffield">Sheffield</option>
+                <option value="Nottingham">Nottingham</option>
+                <option value="Birmingham">Birmingham</option>
+                <option value="Newcastle">Newcastle</option>
+                <option value="Glasgow">Glasgow</option>
+                <option value="Edinburgh">Edinburgh</option>
+            </select>
 
-        <label for="vehicle_type">交通方式</label>
-        <select id="vehicle_type">
-            <option value="">请选择</option>
-            <option value="walk">步行</option>
-            <option value="bike">自行车</option>
-            <option value="ebike">电动车</option>
-            <option value="car">汽车</option>
-            <option value="public_transport">公共交通</option>
-        </select>
+            <label for="whatsapp">WhatsApp / 电话</label>
+            <input type="text" id="whatsapp" required>
 
-        <label for="available_time">可接单时间</label>
-        <input type="text" id="available_time" placeholder="例如：weekday evenings / weekends">
+            <label for="email">常用 Email</label>
+            <input type="email" id="email">
 
-        <label for="intro">简单介绍一下自己</label>
-        <textarea id="intro" rows="5" placeholder="例如：我在 York 读书，平时晚上和周末有空，可以接取件和代买类订单。"></textarea>
+            <label for="student_email">学校邮箱</label>
+            <input type="email" id="student_email">
 
-        <button type="submit" id="submitBtn">提交报名</button>
-    </form>
+            <label for="has_car">是否有车</label>
+            <select id="has_car">
+                <option value="false">没有</option>
+                <option value="true">有</option>
+            </select>
 
-    <div id="formMessage" class="message"></div>
+            <label for="vehicle_type">交通方式</label>
+            <select id="vehicle_type">
+                <option value="">请选择</option>
+                <option value="walk">步行</option>
+                <option value="bike">自行车</option>
+                <option value="ebike">电动车</option>
+                <option value="car">汽车</option>
+                <option value="public_transport">公共交通</option>
+            </select>
+
+            <label for="available_time">可接单时间</label>
+            <input type="text" id="available_time" placeholder="例如：weekday evenings / weekends">
+
+            <label for="intro">简单介绍一下自己</label>
+            <textarea id="intro" rows="5" placeholder="例如：我在 York 读书，平时晚上和周末有空，可以接取件和代买类订单。"></textarea>
+
+            <button type="submit" id="submitBtn">提交报名申请</button>
+            <div class="small-note">提交后，平台会根据情况尽快联系你。</div>
+        </form>
+
+        <div id="formMessage" class="message"></div>
+    </div>
 </div>
 
 <footer>
-© 2026 UK 使命必达先生
+© 2026 UK 使命必达先生 · 留学生跑腿协助平台
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   const SUPABASE_URL = 'https://jbmhsvnttwgtdsfmuspc.supabase.co';
-  const SUPABASE_KEY = 'sb_publishable_HLDWgq17-PejWydXrLkr2A_F0a_3dpw';
+  const SUPABASE_KEY = '把这里替换成你现在 index.html 里同一个 publishable key';
 
   const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -234,14 +535,14 @@ footer {
       console.error(error);
       showMessage('error', '提交失败：' + error.message);
       submitBtn.disabled = false;
-      submitBtn.textContent = '提交报名';
+      submitBtn.textContent = '提交报名申请';
       return;
     }
 
     showMessage('success', '报名提交成功，我们会尽快联系你。');
     form.reset();
     submitBtn.disabled = false;
-    submitBtn.textContent = '提交报名';
+    submitBtn.textContent = '提交报名申请';
   });
 </script>
 
